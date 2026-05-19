@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Card ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Quicksand', sans-serif;
+    background:#fff5f7;
+    background-image: url("sinhnhat123.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    transition:.5s;
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:scale(.92);
+}
+
+.card{
+    background:rgba(255,255,255,.92);
+    border-radius:28px;
+    padding:25px;
+    width:92%;
+    max-width:520px;
+    border:3px solid #ffc4d6;
+    box-shadow:0 10px 30px rgba(255,182,193,.35);
+    text-align:center;
+    position:relative;
+    z-index:5;
+    animation:float 3s ease-in-out infinite;
+    backdrop-filter:blur(8px);
+}
+
+.card1{
+    background:rgba(255,255,255,.92);
+    border-radius:28px;
+    padding:22px;
+    width:122%;
+    max-width:680px;
+    margin:auto;
+    border:3px solid #ffc4d6;
+    box-shadow:0 10px 30px rgba(255,182,193,.35);
+    text-align:center;
+    position:relative;
+    z-index:5;
+    animation:float 3s ease-in-out infinite;
+    backdrop-filter:blur(8px);
+}
+
+.avatar{
+    width:150px;
+    height:150px;
+    border-radius:24px;
+    overflow:hidden;
+    margin:auto;
+    border:5px solid pink;
+    box-shadow:0 8px 20px rgba(255,182,193,.4);
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+button{
+    border:none;
+    background:#ff9fbc;
+    color:white;
+    padding:13px 28px;
+    border-radius:999px;
+    font-size:1rem;
+    cursor:pointer;
+    margin-top:18px;
+    transition:.25s;
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(255,182,193,.35);
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.no-btn{
+    background:#7de2d1;
+    position:relative;
+}
+
+.music-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:#ff9fbc;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    z-index:999;
+}
+
+.letter{
+    font-size:110px;
+    animation:bounce 2s infinite;
+}
+
+.message-box{
+    background:rgba(255,255,255,.8);
+    border:4px solid pink;
+    border-radius:20px;
+    padding:24px;
+    margin-top:15px;
+    line-height:1.9;
+    font-size:1.08rem;
+    color:#555;
+    white-space:pre-line;
+    text-align:left;
+    max-height:65vh;
+    overflow:auto;
+}
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:pink;
+    font-size:20px;
+    animation:fly linear forwards;
+    pointer-events:none;
+}
+
+.title{
+    font-family:'Pacifico',cursive;
+    color:#ff7fa6;
+}
+
+@keyframes fly{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" loop>
+    <source src="./nhac.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+    🎵
+</button>
+
+<!-- PAGE 0 -->
+<div class="page" id="introPage">
+
+    <div class="card">
+
+        <h1 class="title" style="
+            font-size:2.7rem;
+            margin-bottom:15px;
+        ">
+            Sinh Nhật Chị Êu 💖
+        </h1>
+
+        <p style="
+            color:#ff7ea5;
+            line-height:1.8;
+            font-size:1.1rem;
+        ">
+            Em có thứ muốn đưa chị nè ✨<br>
+            Nhấn bắt đầu nhaaaa ♥
+        </p>
+
+        <button onclick="startCard()">
+            Bắt Đầu 💌
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 1 -->
+<div class="page hidden" id="page1">
+
+    <div class="card">
+
+        <div class="avatar">
+            <img src="sinhnhat114.jpg">
+        </div>
+
+        <h1 class="title" style="
+            margin-top:18px;
+            font-size:2.2rem;
+        ">
+            Happy Birthday 💖
+        </h1>
+
+        <h2 style="
+            color:#ff92b2;
+            margin-top:10px;
+        ">
+            ✨ ♥ ✨ ♥ ✨   
+        </h2>
+
+        <p style="
+            margin-top:15px;
+            color:#ff7ea5;
+            line-height:1.7;
+        ">
+             ấn tiếp tục đi!! <br>
+            (つ◔◡◔)つ♥
+        </p>
+
+        <button onclick="nextPage()">
+            Next!! ^w^
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+
+    <div class="card">
+
+        <div class="letter">
+            💌
+        </div>
+
+        <h2 style="
+            color:#ff85a2;
+            margin-top:10px;
+        ">
+             Có muốn mở thư ra k nè?
+        </h2>
+
+        <button onclick="openLetter()">
+            Mở Thư 💖
+        </button>
+
+        <button class="no-btn" id="noBtn">
+            k má 😼
+        </button>
+
+    </div>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+
+    <div style="
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:80px 20px;
+    ">
+
+        <div class="card1">
+
+            <h1 class="title" style="
+                font-size:2.4rem;
+                margin-bottom:10px;
+            ">
+                Thư Tay💕
+            </h1>
+
+            <div class="message-box">
+Happy birthday babyyy ✨
+
+Hôm nay là ngày sinh nhật cj 🎂
+
+Chúc cj ngày xinh nhật trọn dẹn,
+Chúc cj luôn vuôi,
+gặp nhiều may mắn,
+chúc cj mỗi ngày đều tươi💖
+
+Chúc cj ngày càng xinh,
+Chúc cj giỏi,
+chúc cj khoẻ,
+chúc cj cười,
+chúc cj no,
+chúc cj ấm 💖
+Chúc khum còn buồn phiền,
+k tiêu cực,
+luôn an nhiên ✨
+
+
+Chúc cj xinh nhật vui vẻ nha 🎂
+
+            </div>
+
+            <button onclick="goBack()">
+                Quay Lại 💌
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const bgm = document.getElementById("bgm");
+
+function startCard(){
+
+    bgm.play();
+
+    document.getElementById("introPage")
+        .classList.add("hidden");
+
+    document.getElementById("page1")
+        .classList.remove("hidden");
+}
+
+function goBack(){
+
+    document.getElementById("page3")
+        .classList.add("hidden");
+
+    document.getElementById("introPage")
+        .classList.remove("hidden");
+}
+
+function nextPage(){
+
+    document.getElementById("page1")
+        .classList.add("hidden");
+
+    document.getElementById("page2")
+        .classList.remove("hidden");
+}
+
+function openLetter(){
+
+    document.getElementById("page2")
+        .classList.add("hidden");
+
+    document.getElementById("page3")
+        .classList.remove("hidden");
+}
+
+function toggleMusic(){
+
+    if(bgm.paused){
+        bgm.play();
+    }else{
+        bgm.pause();
+    }
+}
+
+const noBtn = document.getElementById("noBtn");
+
+function moveButton(){
+
+    const x = Math.random()*300 - 150;
+    const y = Math.random()*220 - 110;
+
+    noBtn.style.transform =
+        `translate(${x}px,${y}px)`;
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+
+noBtn.addEventListener("click",(e)=>{
+
+    e.preventDefault();
+
+    moveButton();
+});
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+
+    heart.style.left =
+        Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+        (18 + Math.random()*25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random()*4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
